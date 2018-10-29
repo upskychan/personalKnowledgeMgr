@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<coursewareInfo>
+	  <!--  课件的唯一ID，可以通过单位名称缩写，加上课件提供的年份及该课件序列号，序列号可以为001、002、003...，
+	  例如中央党校在2012年提供的第一门课件，id可为ZYDX2012001  -->
+      <id></id>
+	  <!--  课件编码，该编码填写可以和id一致 -->
+      <courseNumber></courseNumber>
+	  <!--  课件标准，填写范围为：WS01、WS02、WS03，其中WS01代表AICC类型的课件，WS02代表SCROM类型的课件，WS03代表非标准课件 -->
+      <courseStandard></courseStandard>
+	  <!-- 课件的标题，必填，长度不能大于1000个字母或500个汉字，标题内容填写在中间的[]中即可，可以包含<> -->
+      <title><![CDATA[]]></title>
+	  <!--  该课件的语种，填写范围为：zh、en、fr、de、es、ru、ja、ar，其中zh代表中文，en代表英文，fr代表法语，de代表德语，es代表西班牙语，ru代表俄语，ja代表日语，ar代表阿拉伯语-->
+      <language>zh</language>
+	  <!--  该课件的简介，内容填写在中间的[]中即可，可以包含<>  -->
+      <description><![CDATA[]]></description>
+      <!-- 课件在服务器中存储的位置，以多级目录存储，厂商缩写为一级（厂商编码去掉KJ_前缀即可），该课件的唯一标识为一级，此唯一标识可以是课件编码或者id，不要过长，例如中央党校2012年第一门课件的课件编码为ZYDX2012001，该存储位置为：/ZYDX/ZYDX20012001/index.html，index.html是课件首页的文件名称  -->
+	  <location></location><!--  如何得到这个地址？ -->
+	  <!--  提供该课件的年份，例如 2012年提供的课件，则年份可填写2012   -->
+      <year></year>
+	  <!--  课件的厂商编码，可以根据单位名称的缩写在前面加上KJ_开头，例如中央党校，拼音缩写为ZYDX，厂商编码为KJ_ZYDX  -->
+      <provider></provider>
+	  <!--  该课件在数据库中的资源种类，固定写GT006即可 -->
+      <resourceType>GT006</resourceType>
+	  <!--  课件的播放格式，填写范围为：1、2、3、4、5，其中1代表音频，2代表音、视频，3代表Flash，4代表视频，5代表文件  -->
+      <playFormat>2</playFormat>
+	  <!-- 课程章节目录 -->
+	  <catalogues>
+		<catalogue>
+			<!-- 章节描述，本章节的内容，内容填写在中间的[]中即可。 -->
+			<description><![CDATA[]]></description>
+			<!-- 
+				章节的访问地址：
+				AICC课程的访问地址格式为：/aiccVod.action?inilocation=1_1_1_1&amp;inivideo=1&amp;coursenum=ADKS20101212
+						inilocation为章节ID，对应“.des”文件中的developer_id值；inivideo的值见上面播放形式；coursenum为课件唯一标识；
+				SCORM课程的访问地址格式为：/scormVod.action? inilocation=1_1_1_1&inivideo=1&coursenum=ADKS20101212
+						inilocation=（item identifier）；inivideo的值见上面播放形式；coursenum=（organization identifier）
+			-->
+			<location>
+				/aiccVod.action?inilocation=1_1_1_1&amp;inivideo=1&amp;coursenum=ADKS20101212
+			</location>
+			<!-- 章节的标题名称，填写本章节的标题，内容填写在中间的[]中即可。 -->
+			<name><![CDATA[]]></name>
+			<!--
+				章节序号：用于显示章节的排序，章节序号采用：章_节_页的格式，例如：0_1_0 代表前言、1_0_0 代表第一章、1_1_0代表第一章第一节
+			-->
+			<seqNum>1_0_0</seqNum>
+			<!-- 
+				章节目录的值，采用课件编码（courseNumber）#课件（inilocation）的格式 例如：ADKS20101212#1_1_1_1
+				如果该节点为章节点，value值中的inilocation值，采用该章下的第一节的inilocation值。
+			-->
+			<value>ADKS20101212#1_1_1_1</value>
+		</catalogue>
+		<!-- 多章节描述，一门课程有多个章节，需要采用多个catalogue的格式完成 -->
+		<catalogue>
+			<description><![CDATA[]]></description>
+			<location>
+				/aiccVod.action?inilocation=1_1_2_1&amp;inivideo=1&amp;coursenum=ADKS20101212
+			</location>
+			<!-- 章节的标题名称，填写本章节的标题，内容填写在中间的[]中即可。 -->
+			<name><![CDATA[]]></name>
+			<seqNum>1_1_0</seqNum>
+			<value>ADKS20101212#1_1_1_1</value>
+		</catalogue>
+	  </catalogues>
+	  <chapterData>
+		<!-- 章节内容类型：GT005为flash章节内容,GT001为文本章节内容 -->
+		<resourceType>GT005</resourceType>
+		<!-- 章节内容类型：GF081为flash章节格式,GF073为文本章节格式 -->
+		<format>GF081</format>
+		<language>zh</language>
+		<!-- 以下为falsh格式需要填写的内容 -->
+		<!-- 帧数 -->
+		<frameCount>200</frameCount>
+		<!-- 分辨率 -->
+		<specification>600*800</specification>
+	  </chapterData>
+	  <!-- 贡献者集合  -->
+      <contributes>
+	    <!--  单个贡献者  -->
+        <contribute>
+		  <!--   主讲人名称   -->
+          <entityName></entityName>
+		  <!--  固定写CR810  -->
+          <role>CR810</role>
+		  <!--  贡献者的简介，用于展示教师、单位相关信息等，长度不能大于1000个字母或500个汉字，内容填写在中间的[]中即可，可以包含<> ，可以为空 -->
+          <unitTitle><![CDATA[]]></unitTitle>
+        </contribute>
+		<!--  课件贡献者  -->
+        <contribute>
+		  <!--
+			单位名称名称 ：
+				院校类的单位填写院校名称，例如：北京大学 
+				网校类的单位填写网校名称（或地方网校省略网校两字），例如：北京、上海、中宣部
+		  -->
+          <entityName></entityName>
+		  <!--  固定写CR860  -->
+          <role>CR860</role>
+		  <!--  贡献者的简介，用于展示教师、单位相关信息等，长度不能大于1000个字母或500个汉字，内容填写在中间的[]中即可，可以包含<> ，可以为空 -->
+          <unitTitle><![CDATA[]]></unitTitle>
+        </contribute>
+      </contributes>	  
+</coursewareInfo>
+    
