@@ -5,5 +5,10 @@ public class TestTermination {
 		Book book = new Book();
 		book.init();
 		System.gc();
+		try {
+			Thread.sleep(10000);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
