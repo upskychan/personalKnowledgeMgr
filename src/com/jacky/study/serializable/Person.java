@@ -6,7 +6,25 @@ public class Person implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String name;
 	private int age;
+	private static String fName;
+	private transient String var;
 	private Tool tool;
+
+	public static String getfName() {
+		return fName;
+	}
+
+	public static void setfName(String fName) {
+		Person.fName = fName;
+	}
+
+	public String getVar() {
+		return var;
+	}
+
+	public void setVar(String var) {
+		this.var = var;
+	}
 
 	/**
 	 * @return the tool
